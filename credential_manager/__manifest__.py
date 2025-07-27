@@ -14,5 +14,6 @@
     'application': True,
     'price': 159.99,
     'currency': 'USD',
+    'license': 'LGPL-3',
 
 }

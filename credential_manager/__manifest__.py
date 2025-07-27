@@ -12,7 +12,7 @@
     ],
     'installable': True,
     'application': True,
-    'price': 159.9,
+    'price': 159.99,
     'currency': 'USD',
 
 }

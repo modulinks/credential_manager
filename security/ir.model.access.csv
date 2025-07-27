@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_credential_manager_admin,Acceso Completo Credenciales,model_credential_manager,group_credential_manager,1,1,1,1
+access_credential_manager_consultants,Acceso Consultores Credenciales,model_credential_manager,group_consultants,1,0,0,0
+access_credential_manager_dev,Acceso Dev Credenciales,model_credential_manager,group_dev,1,0,0,0
+access_credential_collection_admin,Acceso Completo Colecciones,model_credential_collection,group_credential_manager,1,1,1,1
+access_credential_collection_consultants,Acceso Consultores Colecciones,model_credential_collection,group_consultants,1,0,0,0
+access_credential_collection_dev,Acceso Dev Colecciones,model_credential_collection,group_dev,1,0,0,0
+access_credential_custom_field_admin,Acceso Completo Campos Personalizados,model_credential_custom_field,group_credential_manager,1,1,1,1
+access_credential_custom_field_dev,Acceso Campos Personalizados Dev,model_credential_custom_field,group_dev,1,0,0,0
+access_credential_custom_field_admin_system,Acceso Campos Personalizados Admin,model_credential_custom_field,base.group_system,1,1,1,1
+access_credential_custom_field_wizard_admin,Acceso Wizard Campos Personalizados,model_credential_custom_field_wizard,group_credential_manager,1,1,1,1
+access_credential_custom_field_wizard_dev,Acceso Wizard Campos Personalizados Dev,model_credential_custom_field_wizard,group_dev,1,0,0,0
+access_credential_custom_field_wizard_admin_system,Acceso Wizard Campos Personalizados Admin,model_credential_custom_field_wizard,base.group_system,1,1,1,1

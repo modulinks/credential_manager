@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_credential_root"
+              name="Gestor de Credenciales"
+              groups="group_credential_manager,base.group_system"/>
+
+    <menuitem id="menu_credential_manager"
+              name="Credenciales"
+              parent="menu_credential_root"
+              action="action_credential_manager"
+              groups="group_credential_manager,base.group_system"/>
+
+    <menuitem id="menu_collection_manager"
+              name="Colecciones"
+              parent="menu_credential_root"
+              action="action_collection_manager"
+              groups="group_credential_manager,base.group_system"/>
+</odoo>

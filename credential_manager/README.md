@@ -24,7 +24,6 @@ Coloca el módulo en tu carpeta de addons de Odoo, actualiza la lista de apps y 
 ## 🧑‍💻 Créditos
 **Autor:** Modulinks  
 **Correo soporte:** innovacionmodulink@gmail.com  
-**GitHub:** [https://github.com/modulinks](https://github.com/modulinks)
 
 ## 📝 Licencia
 Este módulo está licenciado bajo LGPL v3.  

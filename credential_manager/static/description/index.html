@@ -1,7 +1,418 @@
-<h2>Gestor de Credenciales</h2>
-<p>Este módulo permite gestionar credenciales de forma segura al estilo Bitwarden, directamente en Odoo 16.</p>
-<ul>
-  <li>Almacena accesos con cifrado y control de permisos</li>
-  <li>Diseño simplificado para uso interno de equipos técnicos</li>
-  <li>Compatible con Community y Enterprise</li>
-</ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Credenciales - Odoo Addon</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-left: 5px solid #2c5aa0;
+        }
+        
+        .intro h2 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e8ecf4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            color: #2c5aa0;
+            margin: 0 0 15px 0;
+            font-size: 1.3rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .tech-specs {
+            background: linear-gradient(135deg, #fff5f5 0%, #fef0f0 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #dc3545;
+        }
+        
+        .tech-specs h2 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+        
+        .security-notice {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 5px solid #ff9800;
+            border: 1px solid #ffcc02;
+        }
+        
+        .security-notice h3 {
+            color: #e65100;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .installation {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .installation h2 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Gestor de Credenciales</h1>
+            <div class="subtitle">Módulo profesional de gestión de credenciales para Odoo 16</div>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>🚀 Administración Segura de Credenciales</h2>
+                <p>Este módulo permite gestionar credenciales de forma segura al estilo Bitwarden, directamente integrado en Odoo 16. Diseñado para equipos técnicos que necesitan centralizar y controlar el acceso a credenciales críticas.</p>
+                
+                <div style="margin-top: 20px;">
+                    <span class="badge">Odoo 16</span>
+                    <span class="badge">Community & Enterprise</span>
+                    <span class="badge">Multi-Usuario</span>
+                    <span class="badge">2FA</span>
+                    <span class="badge">SSH Ready</span>
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Gestión Segura</h3>
+                    <ul class="feature-list">
+                        <li>Almacenamiento cifrado de contraseñas</li>
+                        <li>Control granular de permisos por grupos</li>
+                        <li>Campos ocultos para información sensible</li>
+                        <li>Botones de mostrar/ocultar contraseñas</li>
+                        <li>Funcionalidad de copiado al portapapeles</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Autenticación 2FA</h3>
+                    <ul class="feature-list">
+                        <li>Integración con Google Authenticator</li>
+                        <li>Generación automática de tokens TOTP</li>
+                        <li>Verificación obligatoria para accesos críticos</li>
+                        <li>Secretos 2FA protegidos por permisos</li>
+                        <li>Tokens con validez de 30 segundos</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💻</span>
+                    <h3>Soporte SSH Completo</h3>
+                    <ul class="feature-list">
+                        <li>Credenciales SSH para usuarios regulares</li>
+                        <li>Accesos SSH Root separados</li>
+                        <li>Gestión de claves privadas</li>
+                        <li>Configuración de IP, DNS y puertos</li>
+                        <li>Campos específicos para desarrolladores</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📁</span>
+                    <h3>Organización Avanzada</h3>
+                    <ul class="feature-list">
+                        <li>Sistema de colecciones/carpetas</li>
+                        <li>Control de acceso por grupos de Odoo</li>
+                        <li>Múltiples URLs por credencial</li>
+                        <li>Campo de notas para documentación</li>
+                        <li>Seguimiento de cambios (chatter)</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3>Control de Acceso</h3>
+                    <ul class="feature-list">
+                        <li>Grupo Administradores de Credenciales</li>
+                        <li>Grupo Consultores (acceso limitado)</li>
+                        <li>Grupo Desarrolladores (acceso SSH)</li>
+                        <li>Permisos granulares por campo</li>
+                        <li>Restricciones basadas en roles</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">⚙️</span>
+                    <h3>Funcionalidades Técnicas</h3>
+                    <ul class="feature-list">
+                        <li>Wizards para verificación 2FA</li>
+                        <li>Campos personalizados extensibles</li>
+                        <li>Integración completa con mail.thread</li>
+                        <li>Actividades y seguimientos</li>
+                        <li>Interfaz responsive y moderna</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="security-notice">
+                <h3>⚠️ Consideraciones de Seguridad</h3>
+                <p><strong>Importante:</strong> Este módulo está diseñado para uso interno en equipos técnicos. Asegúrate de:</p>
+                <ul class="feature-list">
+                    <li>Configurar correctamente los grupos de seguridad</li>
+                    <li>Usar HTTPS en producción</li>
+                    <li>Realizar backups regulares de la base de datos</li>
+                    <li>Auditar regularmente los accesos y permisos</li>
+                    <li>Mantener actualizado el sistema Odoo</li>
+                </ul>
+            </div>
+            
+            <div class="installation">
+                <h2>📦 Instalación</h2>
+                <p>Para instalar este módulo en tu instancia de Odoo 16:</p>
+                
+                <div class="code-block">
+# 1. Copia el módulo en tu directorio de addons
+cp -r credential_manager /path/to/odoo/addons/
+
+# 2. Instala la dependencia pyotp
+pip install pyotp
+
+# 3. Reinicia el servidor Odoo
+sudo systemctl restart odoo
+
+# 4. Actualiza la lista de módulos en Odoo
+# 5. Instala el módulo "Gestor de Credenciales"
+                </div>
+                
+                <p><strong>Dependencias requeridas:</strong></p>
+                <ul class="feature-list">
+                    <li>Python package: <code>pyotp</code> (para 2FA)</li>
+                    <li>Módulos Odoo: <code>base</code>, <code>mail</code></li>
+                </ul>
+            </div>
+            
+            <div class="tech-specs">
+                <h2>🔧 Especificaciones Técnicas</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4>Modelos Principales:</h4>
+                        <ul class="feature-list">
+                            <li><code>credential.manager</code></li>
+                            <li><code>credential.collection</code></li>
+                            <li><code>credential.custom.field</code></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Wizards:</h4>
+                        <ul class="feature-list">
+                            <li><code>credential.access.wizard</code></li>
+                            <li><code>credential.custom.field.wizard</code></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Grupos de Seguridad:</h4>
+                        <ul class="feature-list">
+                            <li>Administradores de Credenciales</li>
+                            <li>Consultores</li>
+                            <li>Desarrolladores</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Compatibilidad:</h4>
+                        <ul class="feature-list">
+                            <li>Odoo Community 16.0</li>
+                            <li>Odoo Enterprise 16.0</li>
+                            <li>Python 3.8+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Módulo desarrollado para Odoo 16 | Compatible con Community y Enterprise</p>
+            <p>Gestión profesional de credenciales con seguridad empresarial</p>
+        </div>
+    </div>
+</body>
+</html>

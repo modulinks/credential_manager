@@ -19,7 +19,11 @@
         'views/credential_views.xml',
         'views/menu.xml',
     ],
-    'images': ['static/description/icon.png'],
+    'images': [
+    'static/description/banner.png',
+    'static/description/icon.png'
+    ],
+
     'license': 'LGPL-3',
     'installable': True,
     'application': True,

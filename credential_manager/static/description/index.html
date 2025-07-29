@@ -50,6 +50,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            padding: 0 24px;
         }
 
         .hero h1 {
@@ -94,6 +95,11 @@
 
         .section {
             padding: 80px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section:last-child {
+            border-bottom: none;
         }
 
         .section h2 {
@@ -101,11 +107,21 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 32px;
+            color: #1e293b;
+        }
+
+        .section-block {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 32px;
         }
 
         .problem-section {
             background: white;
-            text-align: center;
         }
 
         .problem-section h2 {
@@ -117,6 +133,7 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             margin-top: 48px;
+            justify-content: center;
         }
 
         .problem-card {
@@ -126,6 +143,7 @@
             border-left: 6px solid #dc2626;
             box-shadow: 0 6px 24px rgba(220, 38, 38, 0.1);
             transition: transform 0.3s ease;
+            text-align: left;
         }
 
         .problem-card:hover {
@@ -151,6 +169,7 @@
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 24px;
             margin-top: 48px;
+            justify-content: center;
         }
 
         .feature-card {
@@ -162,6 +181,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-align: left;
         }
 
         .feature-card::before {
@@ -220,7 +240,6 @@
 
         .security-section {
             background: white;
-            text-align: center;
         }
 
         .security-section h2 {
@@ -235,6 +254,7 @@
             max-width: 900px;
             border-left: 6px solid #f59e0b;
             box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
+            text-align: center;
         }
 
         .security-highlight h3 {
@@ -260,6 +280,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 48px;
+            justify-content: center;
         }
 
         .install-step {
@@ -314,6 +335,7 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 24px;
             margin-top: 48px;
+            justify-content: center;
         }
 
         .compatibility-item {
@@ -322,6 +344,7 @@
             border-radius: 12px;
             backdrop-filter: blur(12px);
             transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .compatibility-item:hover {
@@ -333,6 +356,7 @@
             color: white;
             text-align: center;
             padding: 48px 20px;
+            border-top: 1px solid #334155;
         }
 
         .footer h3 {
@@ -345,6 +369,7 @@
             color: #1e40af;
             font-size: 2rem;
             margin-bottom: 32px;
+            text-align: center;
         }
 
         .workflow-chain {
@@ -373,10 +398,11 @@
 
         .performance-table {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 48px auto 0;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
             border-radius: 12px;
             overflow: hidden;
+            background: white;
         }
 
         .perf-row {
@@ -431,6 +457,10 @@
                 flex-direction: column;
                 gap: 12px;
             }
+
+            .performance-table {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -441,7 +471,7 @@
             <div class="subtitle">
                 Secure, centralized password management with 2FA integration for Odoo 16
             </div>
-            <div style="margin: 32px 0;">
+            <div style="margin: 32px 0; display: flex; justify-content: center; flex-wrap: wrap;">
                 <span class="badge">Odoo 16</span>
                 <span class="badge">Community & Enterprise</span>
                 <span class="badge">Multi-User</span>
@@ -454,30 +484,32 @@
 
     <section class="problem-section section">
         <div class="container">
-            <h2>The Problem We Solve</h2>
-            <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569; text-align: center;">
-                Organizations face <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">scattered credentials</span>, weak security practices, and compliance risks, leading to breaches and inefficiencies.
-            </p>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <span class="problem-icon">🔓</span>
-                    <h3>Security Risks</h3>
-                    <p>Passwords stored insecurely, shared unsafely, and reused across systems.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">📝</span>
-                    <h3>Disorganization</h3>
-                    <p>Credentials scattered across spreadsheets, notes, and devices.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">👥</span>
-                    <h3>Access Issues</h3>
-                    <p>Lack of granular permissions and audit trails for credential usage.</p>
-                </div>
-                <div class="problem-card">
-                    <span class="problem-icon">⏰</span>
-                    <h3>Time Loss</h3>
-                    <p>Hours wasted searching for credentials and managing access manually.</p>
+            <div class="section-block">
+                <h2>The Problem We Solve</h2>
+                <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569; text-align: center;">
+                    Organizations face <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">scattered credentials</span>, weak security practices, and compliance risks, leading to breaches and inefficiencies.
+                </p>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <span class="problem-icon">🔓</span>
+                        <h3>Security Risks</h3>
+                        <p>Passwords stored insecurely, shared unsafely, and reused across systems.</p>
+                    </div>
+                    <div class="problem-card">
+                        <span class="problem-icon">📝</span>
+                        <h3>Disorganization</h3>
+                        <p>Credentials scattered across spreadsheets, notes, and devices.</p>
+                    </div>
+                    <div class="problem-card">
+                        <span class="problem-icon">👥</span>
+                        <h3>Access Issues</h3>
+                        <p>Lack of granular permissions and audit trails for credential usage.</p>
+                    </div>
+                    <div class="problem-card">
+                        <span class="problem-icon">⏰</span>
+                        <h3>Time Loss</h3>
+                        <p>Hours wasted searching for credentials and managing access manually.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -485,146 +517,146 @@
 
     <section class="solution-section section">
         <div class="container">
-            <h2>Our Comprehensive Solution</h2>
-            <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569;">
-                A robust credential management system for Odoo, delivering <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">enterprise-grade security</span> and seamless usability.
-            </p>
-
-            <div class="metrics-section">
-                <h3>Optimize Your Security Workflow</h3>
-                <p style="text-align: center; color: #475569; margin-bottom: 32px; font-size: 1.1rem;">
-                    Tailored for teams of all sizes, our solution enhances security and access control efficiency.
+            <div class="section-block">
+                <h2>Our Comprehensive Solution</h2>
+                <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569;">
+                    A robust credential management system for Odoo, delivering <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">enterprise-grade security</span> and seamless usability.
                 </p>
-                <div class="workflow-chain">
-                    <div class="workflow-step">
-                        <div style="font-weight: 600;">Credentials Managed</div>
-                        <div style="font-size: 0.9rem; opacity: 0.9;">(per organization)</div>
-                    </div>
-                    <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
-                    <div class="workflow-step">
-                        <div style="font-weight: 600;">Security Groups &</div>
-                        <div style="font-weight: 600;">2FA Setup</div>
-                    </div>
-                    <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
-                    <div class="workflow-step">
-                        <div style="font-weight: 600;">Access Control</div>
-                        <div style="font-weight: 600;">Management</div>
-                    </div>
-                </div>
-                <div class="performance-table">
-                    <div class="perf-row">
-                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
-                            100+ to 500+
+                <div class="metrics-section">
+                    <h3>Optimize Your Security Workflow</h3>
+                    <p style="text-align: center; color: #475569; margin-bottom: 32px; font-size: 1.1rem;">
+                        Tailored for teams of all sizes, our solution enhances security and access control efficiency.
+                    </p>
+                    <div class="workflow-chain">
+                        <div class="workflow-step">
+                            <div style="font-weight: 600;">Credentials Managed</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">(per organization)</div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
-                            Fully Configured
+                        <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                        <div class="workflow-step">
+                            <div style="font-weight: 600;">Security Groups &</div>
+                            <div style="font-weight: 600;">2FA Setup</div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
-                            Enterprise Ready
+                        <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                        <div class="workflow-step">
+                            <div style="font-weight: 600;">Access Control</div>
+                            <div style="font-weight: 600;">Management</div>
                         </div>
                     </div>
-                    <div class="perf-row">
-                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
-                            50 to 100+
+                    <div class="performance-table">
+                        <div class="perf-row">
+                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                                100+ to 500+
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                                Fully Configured
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                                Enterprise Ready
+                            </div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
-                            Basic Setup
+                        <div class="perf-row">
+                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                                50 to 100+
+                            </div>
+                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                                Basic Setup
+                            </div>
+                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                                Team Collaboration
+                            </div>
                         </div>
-                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
-                            Team Collaboration
+                        <div class="perf-row">
+                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                                20 to 50+
+                            </div>
+                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                                Secured
+                            </div>
+                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                                Quick Deployment
+                            </div>
+                        </div>
+                        <div class="perf-row">
+                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                                5 to 20+
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                                Initial Setup
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                                Getting Started
+                            </div>
                         </div>
                     </div>
-                    <div class="perf-row">
-                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
-                            20 to 50+
-                        </div>
-                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
-                            Secured
-                        </div>
-                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
-                            Quick Deployment
-                        </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Enterprise Security</h3>
+                        <ul class="feature-list">
+                            <li>Military-grade encryption</li>
+                            <li>Role-based access control</li>
+                            <li>Hidden sensitive fields</li>
+                            <li>Secure clipboard operations</li>
+                            <li>Activity tracking & audits</li>
+                        </ul>
                     </div>
-                    <div class="perf-row">
-                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
-                            5 to 20+
-                        </div>
-                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
-                            Initial Setup
-                        </div>
-                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
-                            Getting Started
-                        </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📱</span>
+                        <h3>Two-Factor Authentication</h3>
+                        <ul class="feature-list">
+                            <li>Google Authenticator support</li>
+                            <li>TOTP token generation</li>
+                            <li>Mandatory 2FA for critical access</li>
+                            <li>Protected 2FA secrets</li>
+                            <li>Real-time verification</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <h3>Enterprise Security</h3>
-                    <ul class="feature-list">
-                        <li>Military-grade encryption</li>
-                        <li>Role-based access control</li>
-                        <li>Hidden sensitive fields</li>
-                        <li>Secure clipboard operations</li>
-                        <li>Activity tracking & audits</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3>Two-Factor Authentication</h3>
-                    <ul class="feature-list">
-                        <li>Google Authenticator support</li>
-                        <li>TOTP token generation</li>
-                        <li>Mandatory 2FA for critical access</li>
-                        <li>Protected 2FA secrets</li>
-                        <li>Real-time verification</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💻</span>
-                    <h3>SSH Management</h3>
-                    <ul class="feature-list">
-                        <li>User SSH credentials</li>
-                        <li>Root access management</li>
-                        <li>Private key storage</li>
-                        <li>IP, DNS, port configuration</li>
-                        <li>Developer field access</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📂</span>
-                    <h3>Smart Organization</h3>
-                    <ul class="feature-list">
-                        <li>Credential grouping</li>
-                        <li>Group-based access</li>
-                        <li>Multiple URL support</li>
-                        <li>Rich note-taking</li>
-                        <li>Full change tracking</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">👥</span>
-                    <h3>Access Control</h3>
-                    <ul class="feature-list">
-                        <li>Admin group management</li>
-                        <li>Limited consultant access</li>
-                        <li>Developer SSH permissions</li>
-                        <li>Field-level controls</li>
-                        <li>Role-based restrictions</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚙️</span>
-                    <h3>Professional Features</h3>
-                    <ul class="feature-list">
-                        <li>2FA verification wizards</li>
-                        <li>Custom fields support</li>
-                        <li>Mail.thread integration</li>
-                        <li>Activity management</li>
-                        <li>Responsive interface</li>
-                    </ul>
+                    <div class="feature-card">
+                        <span class="feature-icon">💻</span>
+                        <h3>SSH Management</h3>
+                        <ul class="feature-list">
+                            <li>User SSH credentials</li>
+                            <li>Root access management</li>
+                            <li>Private key storage</li>
+                            <li>IP, DNS, port configuration</li>
+                            <li>Developer field access</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📂</span>
+                        <h3>Smart Organization</h3>
+                        <ul class="feature-list">
+                            <li>Credential grouping</li>
+                            <li>Group-based access</li>
+                            <li>Multiple URL support</li>
+                            <li>Rich note-taking</li>
+                            <li>Full change tracking</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">👥</span>
+                        <h3>Access Control</h3>
+                        <ul class="feature-list">
+                            <li>Admin group management</li>
+                            <li>Limited consultant access</li>
+                            <li>Developer SSH permissions</li>
+                            <li>Field-level controls</li>
+                            <li>Role-based restrictions</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">⚙️</span>
+                        <h3>Professional Features</h3>
+                        <ul class="feature-list">
+                            <li>2FA verification wizards</li>
+                            <li>Custom fields support</li>
+                            <li>Mail.thread integration</li>
+                            <li>Activity management</li>
+                            <li>Responsive interface</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -632,31 +664,33 @@
 
     <section class="security-section section">
         <div class="container">
-            <h2>Security-First Design</h2>
-            <div class="security-highlight">
-                <h3>🔒 Enterprise-Grade Protection</h3>
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #475569;">
-                    Built with robust security measures, ensuring your credentials are safeguarded with advanced encryption and access controls.
-                </p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
-                <div style="padding: 24px;">
-                    <h4 style="color: #1e40af; margin-bottom: 16px;">🛡️ What We Protect</h4>
-                    <ul class="feature-list">
-                        <li>User passwords & SSH credentials</li>
-                        <li>Private keys & certificates</li>
-                        <li>2FA secrets & tokens</li>
-                        <li>Server access details</li>
-                    </ul>
+            <div class="section-block">
+                <h2>Security-First Design</h2>
+                <div class="security-highlight">
+                    <h3>🔒 Enterprise-Grade Protection</h3>
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: #475569;">
+                        Built with robust security measures, ensuring your credentials are safeguarded with advanced encryption and access controls.
+                    </p>
                 </div>
-                <div style="padding: 24px;">
-                    <h4 style="color: #1e40af; margin-bottom: 16px;">🔐 How We Protect</h4>
-                    <ul class="feature-list">
-                        <li>Encrypted database storage</li>
-                        <li>Role-based access control</li>
-                        <li>Field-level permissions</li>
-                        <li>Activity logging & auditing</li>
-                    </ul>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
+                    <div style="padding: 24px; text-align: left;">
+                        <h4 style="color: #1e40af; margin-bottom: 16px;">🛡️ What We Protect</h4>
+                        <ul class="feature-list">
+                            <li>User passwords & SSH credentials</li>
+                            <li>Private keys & certificates</li>
+                            <li>2FA secrets & tokens</li>
+                            <li>Server access details</li>
+                        </ul>
+                    </div>
+                    <div style="padding: 24px; text-align: left;">
+                        <h4 style="color: #1e40af; margin-bottom: 16px;">🔐 How We Protect</h4>
+                        <ul class="feature-list">
+                            <li>Encrypted database storage</li>
+                            <li>Role-based access control</li>
+                            <li>Field-level permissions</li>
+                            <li>Activity logging & auditing</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -664,54 +698,58 @@
 
     <section class="installation-section section" id="install">
         <div class="container">
-            <h2>Quick Installation</h2>
-            <p style="text-align: center; font-size: 1.125rem; margin-bottom: 32px; color: #475569;">
-                Deploy securely in minutes with our streamlined setup process.
-            </p>
-            <div class="install-steps">
-                <div class="install-step">
-                    <div class="step-number">1</div>
-                    <h3>Download & Extract</h3>
-                    <p>Copy the module to your Odoo addons directory.</p>
-                </div>
-                <div class="install-step">
-                    <div class="step-number">2</div>
-                    <h3>Install Dependencies</h3>
-                    <p>Run: <code>pip install pyotp</code> for 2FA support.</p>
-                </div>
-                <div class="install-step">
-                    <div class="step-number">3</div>
-                    <h3>Restart & Install</h3>
-                    <p>Restart Odoo and install from the Apps menu.</p>
-                </div>
-                <div class="install-step">
-                    <div class="step-number">4</div>
-                    <h3>Configure Security</h3>
-                    <p>Set up user groups and manage credentials securely.</p>
+            <div class="section-block">
+                <h2>Quick Installation</h2>
+                <p style="text-align: center; font-size: 1.125rem; margin-bottom: 32px; color: #475569;">
+                    Deploy securely in minutes with our streamlined setup process.
+                </p>
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-number">1</div>
+                        <h3>Download & Extract</h3>
+                        <p>Copy the module to your Odoo addons directory.</p>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-number">2</div>
+                        <h3>Install Dependencies</h3>
+                        <p>Run: <code>pip install pyotp</code> for 2FA support.</p>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-number">3</div>
+                        <h3>Restart & Install</h3>
+                        <p>Restart Odoo and install from the Apps menu.</p>
+                    </div>
+                    <div class="install-step">
+                        <div class="step-number">4</div>
+                        <h3>Configure Security</h3>
+                        <p>Set up user groups and manage credentials securely.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="compatibility-section">
+    <section class="compatibility-section section">
         <div class="container">
-            <h2>Full Compatibility</h2>
-            <div class="compatibility-grid">
-                <div class="compatibility-item">
-                    <h3>🏢 Odoo Editions</h3>
-                    <p>Community & Enterprise 16.0</p>
-                </div>
-                <div class="compatibility-item">
-                    <h3>🐍 Python Version</h3>
-                    <p>Python 3.8+</p>
-                </div>
-                <div class="compatibility-item">
-                    <h3>📱 Device Support</h3>
-                    <p>Desktop, Mobile, Tablet</p>
-                </div>
-                <div class="compatibility-item">
-                    <h3>🌐 Browser Support</h3>
-                    <p>All Modern Browsers</p>
+            <div class="section-block">
+                <h2>Full Compatibility</h2>
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <h3>🏢 Odoo Editions</h3>
+                        <p>Community & Enterprise 16.0</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>🐍 Python Version</h3>
+                        <p>Python 3.8+</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>📱 Device Support</h3>
+                        <p>Desktop, Mobile, Tablet</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <h3>🌐 Browser Support</h3>
+                        <p>All Modern Browsers</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -359,6 +359,98 @@
             background-clip: text;
             font-weight: 700;
         }
+        
+        .workflow-step {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .workflow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+        
+        .perf-row {
+            transition: all 0.3s ease;
+        }
+        
+        .perf-row:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .metrics-section {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .performance-table {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            padding: 5px;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important;
+        }
+        
+        .security-layer:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+        
+        .security-result {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1.1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .stats-grid {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .security-visualization {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -419,10 +511,87 @@
     <section class="solution-section section">
         <div class="container">
             <h2>Our Complete Solution</h2>
-            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 50px auto; color: #6c757d;">
+            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px auto; color: #6c757d;">
                 A professional-grade credential management system that integrates seamlessly with your Odoo environment, 
                 providing <span class="highlight-text">enterprise security</span> with user-friendly operations.
             </p>
+            
+            <!-- Performance Metrics Section -->
+            <div class="metrics-section" style="margin: 60px 0;">
+                <h3 style="text-align: center; color: #2c5aa0; margin-bottom: 40px; font-size: 2rem;">
+                    Streamline Your Security Management Process
+                </h3>
+                <p style="text-align: center; color: #6c757d; margin-bottom: 40px; font-size: 1.1rem;">
+                    Based on your team size, security requirements, and access control needs, our credential manager delivers optimized performance for managing your organization's sensitive data.
+                </p>
+                
+                <div class="workflow-chain" style="display: flex; justify-content: center; align-items: center; margin: 40px 0; flex-wrap: wrap; gap: 20px;">
+                    <div class="workflow-step" style="background: #1e3d72; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(30, 61, 114, 0.3);">
+                        <div style="font-weight: bold; font-size: 1.1rem;">Credentials Managed</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">(per organization)</div>
+                    </div>
+                    <div style="color: #667eea; font-size: 2rem; font-weight: bold;">if</div>
+                    <div class="workflow-step" style="background: #2c5aa0; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);">
+                        <div style="font-weight: bold; font-size: 1.1rem;">Security Groups &</div>
+                        <div style="font-weight: bold; font-size: 1.1rem;">2FA Setup is:</div>
+                    </div>
+                    <div style="color: #667eea; font-size: 2rem; font-weight: bold;">and</div>
+                    <div class="workflow-step" style="background: #667eea; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);">
+                        <div style="font-weight: bold; font-size: 1.1rem;">Access Control</div>
+                        <div style="font-weight: bold; font-size: 1.1rem;">Management is:</div>
+                    </div>
+                </div>
+                
+                <div class="performance-table" style="max-width: 1000px; margin: 0 auto;">
+                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
+                            <div style="font-size: 1.2rem;">100+ to 500+</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
+                            Properly configured
+                        </div>
+                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
+                            Enterprise Ready
+                        </div>
+                    </div>
+                    
+                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
+                            <div style="font-size: 1.2rem;">50 to 100+</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
+                            Basic setup needed
+                        </div>
+                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
+                            Team Collaboration
+                        </div>
+                    </div>
+                    
+                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
+                            <div style="font-size: 1.2rem;">20 to 50+</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
+                            Already secured
+                        </div>
+                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
+                            Quick Deployment
+                        </div>
+                    </div>
+                    
+                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
+                            <div style="font-size: 1.2rem;">5 to 20+</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
+                            Initial configuration
+                        </div>
+                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
+                            Getting Started
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="features-grid">
                 <div class="feature-card">

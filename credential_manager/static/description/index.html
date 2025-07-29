@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credential Manager - Enterprise Security Solution for Odoo</title>
+    <title>Credential Manager - Enterprise Security for Odoo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background: #f8f9fa;
-            color: #2c3e50;
         }
-        
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -30,134 +36,134 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-            animation: drift 20s linear infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            animation: drift 30s linear infinite;
         }
-        
+
         @keyframes drift {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-20px) translateY(-20px); }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-30px, -30px); }
         }
-        
+
         .hero-content {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-        
+
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin: 0 0 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 3.75rem;
+            font-weight: 800;
+            margin: 0 0 24px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        
+
         .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.9;
         }
-        
+
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             color: white;
-            padding: 15px 35px;
+            padding: 16px 40px;
             text-decoration: none;
             border-radius: 50px;
+            font-size: 1.125rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
-        
+
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.4);
             color: white;
-            text-decoration: none;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        
+
         .section {
             padding: 80px 0;
         }
-        
+
+        .section h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
         .problem-section {
             background: white;
             text-align: center;
         }
-        
+
         .problem-section h2 {
-            font-size: 2.5rem;
-            color: #dc3545;
-            margin-bottom: 30px;
-            font-weight: 700;
+            color: #dc2626;
         }
-        
+
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
-        
+
         .problem-card {
-            background: #fff5f5;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #dc3545;
-            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.1);
+            background: #fef2f2;
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 6px solid #dc2626;
+            box-shadow: 0 6px 24px rgba(220, 38, 38, 0.1);
+            transition: transform 0.3s ease;
         }
-        
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+        }
+
         .problem-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            color: #dc3545;
-        }
-        
-        .solution-section {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
-        }
-        
-        .solution-section h2 {
             font-size: 2.5rem;
-            color: #2c5aa0;
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 16px;
         }
-        
+
+        .solution-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .solution-section h2 {
+            color: #1e40af;
+        }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
-        
+
         .feature-card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #e8ecf4;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        
+
         .feature-card::before {
             content: '';
             position: absolute;
@@ -165,290 +171,265 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
         }
-        
+
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
         }
-        
+
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-            color: #2c5aa0;
+            font-size: 2.5rem;
+            color: #1e40af;
+            margin-bottom: 16px;
         }
-        
+
         .feature-card h3 {
-            color: #2c5aa0;
-            margin: 0 0 15px 0;
-            font-size: 1.4rem;
+            color: #1e40af;
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 16px;
         }
-        
+
         .feature-list {
             list-style: none;
             padding: 0;
-            margin: 0;
         }
-        
+
         .feature-list li {
-            padding: 10px 0;
-            padding-left: 30px;
             position: relative;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 12px 0 12px 32px;
+            font-size: 1rem;
+            border-bottom: 1px solid #f3f4f6;
         }
-        
+
         .feature-list li:last-child {
             border-bottom: none;
         }
-        
+
         .feature-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #28a745;
+            top: 12px;
+            color: #22c55e;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
-        
+
         .security-section {
             background: white;
             text-align: center;
         }
-        
+
         .security-section h2 {
-            font-size: 2.5rem;
-            color: #2c5aa0;
-            margin-bottom: 30px;
-            font-weight: 700;
+            color: #1e40af;
         }
-        
+
         .security-highlight {
-            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
-            border-radius: 15px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+            border-radius: 12px;
             padding: 40px;
-            margin: 40px 0;
-            border-left: 5px solid #ff9800;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 40px auto;
+            max-width: 900px;
+            border-left: 6px solid #f59e0b;
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
         }
-        
+
         .security-highlight h3 {
-            color: #e65100;
-            margin-top: 0;
+            color: #b45309;
+            font-size: 1.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            font-size: 1.5rem;
+            gap: 12px;
+            margin-bottom: 16px;
         }
-        
+
         .installation-section {
-            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
         }
-        
+
         .installation-section h2 {
-            font-size: 2.5rem;
-            color: #2e7d32;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 700;
+            color: #15803d;
         }
-        
+
         .install-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
-        
+
         .install-step {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 32px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
-            border-top: 5px solid #4caf50;
+            box-shadow: 0 6px 24px rgba(21, 128, 61, 0.1);
+            border-top: 5px solid #22c55e;
+            transition: transform 0.3s ease;
         }
-        
+
+        .install-step:hover {
+            transform: translateY(-6px);
+        }
+
         .step-number {
-            background: #4caf50;
+            background: #22c55e;
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 20px auto;
+            font-weight: 600;
+            margin: 0 auto 16px;
         }
-        
+
         .badge {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 5px;
-            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin: 6px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
         }
-        
+
         .compatibility-section {
-            background: #2c3e50;
+            background: #1e293b;
             color: white;
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 0;
         }
-        
+
         .compatibility-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
-        
+
         .compatibility-item {
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease;
         }
-        
+
+        .compatibility-item:hover {
+            transform: translateY(-6px);
+        }
+
         .footer {
-            background: #1a252f;
+            background: #0f172a;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 48px 20px;
         }
-        
+
         .footer h3 {
-            margin-bottom: 20px;
-            color: #667eea;
+            color: #4f46e5;
+            font-size: 1.75rem;
+            margin-bottom: 16px;
         }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .features-grid,
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section {
-                padding: 50px 0;
-            }
+
+        .metrics-section h3 {
+            color: #1e40af;
+            font-size: 2rem;
+            margin-bottom: 32px;
         }
-        
-        .highlight-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+
+        .workflow-chain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 48px 0;
         }
-        
+
         .workflow-step {
-            transition: all 0.3s ease;
-            cursor: pointer;
+            background: #1e40af;
+            color: white;
+            padding: 24px 32px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 220px;
+            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.2);
+            transition: transform 0.3s ease;
         }
-        
+
         .workflow-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+            transform: translateY(-6px);
         }
-        
+
+        .performance-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
         .perf-row {
-            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+            margin-bottom: 2px;
+            transition: transform 0.3s ease;
         }
-        
+
         .perf-row:hover {
             transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .metrics-section {
-            animation: fadeInUp 1s ease-out;
-        }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        .performance-table {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            padding: 5px;
+
+        .section, .metrics-section, .stats-grid, .security-visualization {
+            animation: fadeInUp 0.8s ease-out;
         }
-        
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2) !important;
-        }
-        
-        .security-layer:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
-        }
-        
-        .security-result {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1.1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1.1); }
-        }
-        
-        .stats-grid {
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+
+            .hero .subtitle {
+                font-size: 1.25rem;
             }
-        }
-        
-        .security-visualization {
-            animation: slideInRight 1s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
+
+            .section h2 {
+                font-size: 2rem;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+
+            .features-grid, .problem-grid, .install-steps, .compatibility-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 48px 0;
+            }
+
+            .workflow-chain {
+                flex-direction: column;
+                gap: 12px;
             }
         }
     </style>
@@ -460,7 +441,7 @@
             <div class="subtitle">
                 Secure, centralized password management with 2FA integration for Odoo 16
             </div>
-            <div style="margin: 30px 0;">
+            <div style="margin: 32px 0;">
                 <span class="badge">Odoo 16</span>
                 <span class="badge">Community & Enterprise</span>
                 <span class="badge">Multi-User</span>
@@ -473,36 +454,30 @@
 
     <section class="problem-section section">
         <div class="container">
-            <h2>The Problem We're Solving</h2>
-            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #6c757d;">
-                Organizations struggle with <span class="highlight-text">scattered credentials</span>, 
-                weak security practices, and lack of centralized access control. 
-                This leads to security breaches, productivity loss, and compliance issues.
+            <h2>The Problem We Solve</h2>
+            <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569; text-align: center;">
+                Organizations face <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">scattered credentials</span>, weak security practices, and compliance risks, leading to breaches and inefficiencies.
             </p>
-            
             <div class="problem-grid">
                 <div class="problem-card">
                     <span class="problem-icon">🔓</span>
-                    <h3>Security Vulnerabilities</h3>
-                    <p>Passwords stored in unsafe locations, shared through insecure channels, and reused across multiple systems.</p>
+                    <h3>Security Risks</h3>
+                    <p>Passwords stored insecurely, shared unsafely, and reused across systems.</p>
                 </div>
-                
                 <div class="problem-card">
                     <span class="problem-icon">📝</span>
-                    <h3>Poor Organization</h3>
-                    <p>Credentials scattered across spreadsheets, sticky notes, and personal devices with no central management.</p>
+                    <h3>Disorganization</h3>
+                    <p>Credentials scattered across spreadsheets, notes, and devices.</p>
                 </div>
-                
                 <div class="problem-card">
                     <span class="problem-icon">👥</span>
-                    <h3>Access Control Issues</h3>
-                    <p>No granular permissions, difficulty in revoking access, and lack of audit trails for credential usage.</p>
+                    <h3>Access Issues</h3>
+                    <p>Lack of granular permissions and audit trails for credential usage.</p>
                 </div>
-                
                 <div class="problem-card">
                     <span class="problem-icon">⏰</span>
-                    <h3>Time Waste</h3>
-                    <p>Teams waste hours searching for credentials, resetting passwords, and managing access manually.</p>
+                    <h3>Time Loss</h3>
+                    <p>Hours wasted searching for credentials and managing access manually.</p>
                 </div>
             </div>
         </div>
@@ -510,159 +485,145 @@
 
     <section class="solution-section section">
         <div class="container">
-            <h2>Our Complete Solution</h2>
-            <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px auto; color: #6c757d;">
-                A professional-grade credential management system that integrates seamlessly with your Odoo environment, 
-                providing <span class="highlight-text">enterprise security</span> with user-friendly operations.
+            <h2>Our Comprehensive Solution</h2>
+            <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569;">
+                A robust credential management system for Odoo, delivering <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">enterprise-grade security</span> and seamless usability.
             </p>
-            
-            <!-- Performance Metrics Section -->
-            <div class="metrics-section" style="margin: 60px 0;">
-                <h3 style="text-align: center; color: #2c5aa0; margin-bottom: 40px; font-size: 2rem;">
-                    Streamline Your Security Management Process
-                </h3>
-                <p style="text-align: center; color: #6c757d; margin-bottom: 40px; font-size: 1.1rem;">
-                    Based on your team size, security requirements, and access control needs, our credential manager delivers optimized performance for managing your organization's sensitive data.
+
+            <div class="metrics-section">
+                <h3>Optimize Your Security Workflow</h3>
+                <p style="text-align: center; color: #475569; margin-bottom: 32px; font-size: 1.1rem;">
+                    Tailored for teams of all sizes, our solution enhances security and access control efficiency.
                 </p>
-                
-                <div class="workflow-chain" style="display: flex; justify-content: center; align-items: center; margin: 40px 0; flex-wrap: wrap; gap: 20px;">
-                    <div class="workflow-step" style="background: #1e3d72; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(30, 61, 114, 0.3);">
-                        <div style="font-weight: bold; font-size: 1.1rem;">Credentials Managed</div>
+                <div class="workflow-chain">
+                    <div class="workflow-step">
+                        <div style="font-weight: 600;">Credentials Managed</div>
                         <div style="font-size: 0.9rem; opacity: 0.9;">(per organization)</div>
                     </div>
-                    <div style="color: #667eea; font-size: 2rem; font-weight: bold;">if</div>
-                    <div class="workflow-step" style="background: #2c5aa0; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);">
-                        <div style="font-weight: bold; font-size: 1.1rem;">Security Groups &</div>
-                        <div style="font-weight: bold; font-size: 1.1rem;">2FA Setup is:</div>
+                    <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                    <div class="workflow-step">
+                        <div style="font-weight: 600;">Security Groups &</div>
+                        <div style="font-weight: 600;">2FA Setup</div>
                     </div>
-                    <div style="color: #667eea; font-size: 2rem; font-weight: bold;">and</div>
-                    <div class="workflow-step" style="background: #667eea; color: white; padding: 20px 30px; border-radius: 15px; text-align: center; min-width: 200px; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);">
-                        <div style="font-weight: bold; font-size: 1.1rem;">Access Control</div>
-                        <div style="font-weight: bold; font-size: 1.1rem;">Management is:</div>
+                    <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                    <div class="workflow-step">
+                        <div style="font-weight: 600;">Access Control</div>
+                        <div style="font-weight: 600;">Management</div>
                     </div>
                 </div>
-                
-                <div class="performance-table" style="max-width: 1000px; margin: 0 auto;">
-                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
-                            <div style="font-size: 1.2rem;">100+ to 500+</div>
+                <div class="performance-table">
+                    <div class="perf-row">
+                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                            100+ to 500+
                         </div>
-                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
-                            Properly configured
+                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                            Fully Configured
                         </div>
-                        <div style="background: linear-gradient(135deg, #e8d5ff, #f0e6ff); padding: 20px; text-align: center; color: #6f42c1; font-weight: 600;">
+                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
                             Enterprise Ready
                         </div>
                     </div>
-                    
-                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
-                            <div style="font-size: 1.2rem;">50 to 100+</div>
+                    <div class="perf-row">
+                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                            50 to 100+
                         </div>
-                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
-                            Basic setup needed
+                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                            Basic Setup
                         </div>
-                        <div style="background: linear-gradient(135deg, #cfe2ff, #e7f3ff); padding: 20px; text-align: center; color: #0066cc; font-weight: 600;">
+                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
                             Team Collaboration
                         </div>
                     </div>
-                    
-                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; border-radius: 10px; overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
-                            <div style="font-size: 1.2rem;">20 to 50+</div>
+                    <div class="perf-row">
+                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                            20 to 50+
                         </div>
-                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
-                            Already secured
+                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                            Secured
                         </div>
-                        <div style="background: linear-gradient(135deg, #d1e7dd, #f0f9f4); padding: 20px; text-align: center; color: #0a6638; font-weight: 600;">
+                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
                             Quick Deployment
                         </div>
                     </div>
-                    
-                    <div class="perf-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; border-radius: 10px; overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
-                            <div style="font-size: 1.2rem;">5 to 20+</div>
+                    <div class="perf-row">
+                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                            5 to 20+
                         </div>
-                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
-                            Initial configuration
+                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                            Initial Setup
                         </div>
-                        <div style="background: linear-gradient(135deg, #ffe8cc, #fff2e6); padding: 20px; text-align: center; color: #cc6600; font-weight: 600;">
+                        <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
                             Getting Started
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">🛡️</span>
                     <h3>Enterprise Security</h3>
                     <ul class="feature-list">
-                        <li>Military-grade encryption for password storage</li>
-                        <li>Role-based access control integration</li>
-                        <li>Hidden fields for sensitive information</li>
+                        <li>Military-grade encryption</li>
+                        <li>Role-based access control</li>
+                        <li>Hidden sensitive fields</li>
                         <li>Secure clipboard operations</li>
-                        <li>Activity tracking and audit trails</li>
+                        <li>Activity tracking & audits</li>
                     </ul>
                 </div>
-                
                 <div class="feature-card">
                     <span class="feature-icon">📱</span>
                     <h3>Two-Factor Authentication</h3>
                     <ul class="feature-list">
-                        <li>Google Authenticator integration</li>
-                        <li>TOTP token generation (30-second validity)</li>
+                        <li>Google Authenticator support</li>
+                        <li>TOTP token generation</li>
                         <li>Mandatory 2FA for critical access</li>
-                        <li>Protected 2FA secrets with permissions</li>
-                        <li>Real-time token verification</li>
+                        <li>Protected 2FA secrets</li>
+                        <li>Real-time verification</li>
                     </ul>
                 </div>
-                
                 <div class="feature-card">
                     <span class="feature-icon">💻</span>
-                    <h3>Complete SSH Management</h3>
+                    <h3>SSH Management</h3>
                     <ul class="feature-list">
-                        <li>Regular user SSH credentials</li>
-                        <li>Separate SSH root access management</li>
-                        <li>Private key storage and management</li>
-                        <li>IP, DNS, and port configuration</li>
-                        <li>Developer-specific field access</li>
+                        <li>User SSH credentials</li>
+                        <li>Root access management</li>
+                        <li>Private key storage</li>
+                        <li>IP, DNS, port configuration</li>
+                        <li>Developer field access</li>
                     </ul>
                 </div>
-                
                 <div class="feature-card">
                     <span class="feature-icon">📂</span>
                     <h3>Smart Organization</h3>
                     <ul class="feature-list">
-                        <li>Collection-based credential grouping</li>
-                        <li>Group-based access control</li>
-                        <li>Multiple URL support per credential</li>
-                        <li>Rich note-taking capabilities</li>
-                        <li>Full change tracking (chatter)</li>
+                        <li>Credential grouping</li>
+                        <li>Group-based access</li>
+                        <li>Multiple URL support</li>
+                        <li>Rich note-taking</li>
+                        <li>Full change tracking</li>
                     </ul>
                 </div>
-                
                 <div class="feature-card">
                     <span class="feature-icon">👥</span>
-                    <h3>Advanced Access Control</h3>
+                    <h3>Access Control</h3>
                     <ul class="feature-list">
-                        <li>Credential Administrators group</li>
-                        <li>Consultants with limited access</li>
-                        <li>Developers with SSH permissions</li>
-                        <li>Field-level permission control</li>
+                        <li>Admin group management</li>
+                        <li>Limited consultant access</li>
+                        <li>Developer SSH permissions</li>
+                        <li>Field-level controls</li>
                         <li>Role-based restrictions</li>
                     </ul>
                 </div>
-                
                 <div class="feature-card">
                     <span class="feature-icon">⚙️</span>
                     <h3>Professional Features</h3>
                     <ul class="feature-list">
                         <li>2FA verification wizards</li>
-                        <li>Extensible custom fields</li>
-                        <li>Complete mail.thread integration</li>
-                        <li>Activity management and follow-ups</li>
-                        <li>Modern, responsive interface</li>
+                        <li>Custom fields support</li>
+                        <li>Mail.thread integration</li>
+                        <li>Activity management</li>
+                        <li>Responsive interface</li>
                     </ul>
                 </div>
             </div>
@@ -674,29 +635,27 @@
             <h2>Security-First Design</h2>
             <div class="security-highlight">
                 <h3>🔒 Enterprise-Grade Protection</h3>
-                <p style="margin: 0; font-size: 1.1rem; line-height: 1.8;">
-                    Built with security at its core, this module ensures your sensitive credentials are protected 
-                    through multiple layers of security, proper access controls, and industry-standard encryption practices.
+                <p style="font-size: 1.125rem; line-height: 1.8; color: #475569;">
+                    Built with robust security measures, ensuring your credentials are safeguarded with advanced encryption and access controls.
                 </p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="text-align: left; padding: 20px;">
-                    <h4 style="color: #2c5aa0; margin-bottom: 15px;">🛡️ What We Protect</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
+                <div style="padding: 24px;">
+                    <h4 style="color: #1e40af; margin-bottom: 16px;">🛡️ What We Protect</h4>
                     <ul class="feature-list">
-                        <li>User passwords and SSH credentials</li>
-                        <li>Private keys and certificates</li>
-                        <li>2FA secrets and tokens</li>
-                        <li>Server access information</li>
+                        <li>User passwords & SSH credentials</li>
+                        <li>Private keys & certificates</li>
+                        <li>2FA secrets & tokens</li>
+                        <li>Server access details</li>
                     </ul>
                 </div>
-                <div style="text-align: left; padding: 20px;">
-                    <h4 style="color: #2c5aa0; margin-bottom: 15px;">🔐 How We Protect</h4>
+                <div style="padding: 24px;">
+                    <h4 style="color: #1e40af; margin-bottom: 16px;">🔐 How We Protect</h4>
                     <ul class="feature-list">
-                        <li>Encrypted storage in database</li>
+                        <li>Encrypted database storage</li>
                         <li>Role-based access control</li>
                         <li>Field-level permissions</li>
-                        <li>Activity logging and auditing</li>
+                        <li>Activity logging & auditing</li>
                     </ul>
                 </div>
             </div>
@@ -706,33 +665,29 @@
     <section class="installation-section section" id="install">
         <div class="container">
             <h2>Quick Installation</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
-                Get started in minutes with our streamlined installation process
+            <p style="text-align: center; font-size: 1.125rem; margin-bottom: 32px; color: #475569;">
+                Deploy securely in minutes with our streamlined setup process.
             </p>
-            
             <div class="install-steps">
                 <div class="install-step">
                     <div class="step-number">1</div>
                     <h3>Download & Extract</h3>
-                    <p>Copy the module to your Odoo addons directory</p>
+                    <p>Copy the module to your Odoo addons directory.</p>
                 </div>
-                
                 <div class="install-step">
                     <div class="step-number">2</div>
                     <h3>Install Dependencies</h3>
-                    <p>Run: <code>pip install pyotp</code> for 2FA support</p>
+                    <p>Run: <code>pip install pyotp</code> for 2FA support.</p>
                 </div>
-                
                 <div class="install-step">
                     <div class="step-number">3</div>
                     <h3>Restart & Install</h3>
-                    <p>Restart Odoo and install the module from Apps</p>
+                    <p>Restart Odoo and install from the Apps menu.</p>
                 </div>
-                
                 <div class="install-step">
                     <div class="step-number">4</div>
                     <h3>Configure Security</h3>
-                    <p>Set up user groups and start managing credentials securely</p>
+                    <p>Set up user groups and manage credentials securely.</p>
                 </div>
             </div>
         </div>
@@ -764,11 +719,13 @@
 
     <div class="footer">
         <div class="container">
-            <h3>Transform Your Credential Management Today</h3>
-            <p>Join organizations worldwide who trust our enterprise credential management solution</p>
-            <a href="#" class="cta-button" style="margin-top: 20px;">Install Now</a>
-            <p style="margin-top: 30px; opacity: 0.8; font-size: 0.9rem;">
-                Professional credential management for Odoo 16 | Compatible with Community and Enterprise editions
+            <h3>Transform Credential Management</h3>
+            <p style="max-width: 600px; margin: 0 auto 24px; color: #d1d5db;">
+                Join organizations worldwide trusting our secure credential management solution.
+            </p>
+            <a href="#install" class="cta-button">Install Now</a>
+            <p style="margin-top: 24px; color: #d1d5db; font-size: 0.9rem;">
+                Professional credential management for Odoo 16 | Community & Enterprise
             </p>
         </div>
     </div>

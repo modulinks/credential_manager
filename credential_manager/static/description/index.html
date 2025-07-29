@@ -15,13 +15,13 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
-            background: #f8fafc;
-            color: #1e293b;
+            background: hsl(210, 40%, 98%);
+            color: hsl(222, 47%, 11%);
             overflow-x: hidden;
         }
 
         .hero {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, hsl(243, 75%, 59%) 0%, hsl(262, 83%, 58%) 100%);
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -58,6 +58,7 @@
             font-weight: 800;
             margin: 0 0 24px;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
         .hero .subtitle {
@@ -66,24 +67,26 @@
             max-width: 700px;
             margin: 0 auto 32px;
             opacity: 0.9;
+            text-align: center;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            background: linear-gradient(135deg, hsl(142, 71%, 45%) 0%, hsl(142, 69%, 58%) 100%);
             color: white;
             padding: 16px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.125rem;
             font-weight: 600;
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 10px 20px hsla(142, 71%, 45%, 0.3);
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .cta-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 12px 24px hsla(142, 71%, 45%, 0.4);
             color: white;
         }
 
@@ -95,7 +98,7 @@
 
         .section {
             padding: 80px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid hsl(215, 25%, 90%);
         }
 
         .section:last-child {
@@ -107,7 +110,7 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 32px;
-            color: #1e293b;
+            color: hsl(222, 47%, 11%);
         }
 
         .section-block {
@@ -116,7 +119,7 @@
             padding: 24px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px hsla(222, 47%, 11%, 0.05);
             margin-bottom: 32px;
         }
 
@@ -125,25 +128,26 @@
         }
 
         .problem-section h2 {
-            color: #dc2626;
+            color: hsl(0, 84%, 60%);
+            text-align: center;
         }
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
             margin-top: 48px;
             justify-content: center;
         }
 
         .problem-card {
-            background: #fef2f2;
+            background: hsl(0, 86%, 97%);
             padding: 32px;
             border-radius: 12px;
-            border-left: 6px solid #dc2626;
-            box-shadow: 0 6px 24px rgba(220, 38, 38, 0.1);
+            border-left: 6px solid hsl(0, 84%, 60%);
+            box-shadow: 0 6px 24px hsla(0, 84%, 60%, 0.1);
             transition: transform 0.3s ease;
-            text-align: left;
+            text-align: center;
         }
 
         .problem-card:hover {
@@ -152,21 +156,32 @@
 
         .problem-icon {
             font-size: 2.5rem;
-            color: #dc2626;
+            color: hsl(0, 84%, 60%);
             margin-bottom: 16px;
+            text-align: center;
+            display: block;
+        }
+
+        .problem-card h3 {
+            color: hsl(0, 84%, 60%);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
         }
 
         .solution-section {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, hsl(199, 89%, 48%) 0%, hsl(200, 80%, 40%) 100%);
         }
 
         .solution-section h2 {
-            color: #1e40af;
+            color: hsl(213, 94%, 68%);
+            text-align: center;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 24px;
             margin-top: 48px;
             justify-content: center;
@@ -176,12 +191,12 @@
             background: white;
             border-radius: 12px;
             padding: 32px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 24px hsla(222, 47%, 11%, 0.06);
+            border: 1px solid hsl(215, 25%, 90%);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            text-align: left;
+            text-align: center;
         }
 
         .feature-card::before {
@@ -191,37 +206,42 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            background: linear-gradient(90deg, hsl(243, 75%, 59%), hsl(262, 83%, 58%));
         }
 
         .feature-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 32px hsla(222, 47%, 11%, 0.12);
         }
 
         .feature-icon {
             font-size: 2.5rem;
-            color: #1e40af;
+            color: hsl(213, 94%, 68%);
             margin-bottom: 16px;
+            text-align: center;
+            display: block;
         }
 
         .feature-card h3 {
-            color: #1e40af;
+            color: hsl(213, 94%, 68%);
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 16px;
+            text-align: center;
         }
 
         .feature-list {
             list-style: none;
             padding: 0;
+            text-align: center;
         }
 
         .feature-list li {
             position: relative;
-            padding: 12px 0 12px 32px;
+            padding: 12px 0;
             font-size: 1rem;
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 1px solid hsl(220, 13%, 95%);
+            text-align: center;
         }
 
         .feature-list li:last-child {
@@ -230,12 +250,10 @@
 
         .feature-list li::before {
             content: '✓';
-            position: absolute;
-            left: 0;
-            top: 12px;
-            color: #22c55e;
+            color: hsl(142, 71%, 45%);
             font-weight: bold;
             font-size: 1.25rem;
+            margin-right: 8px;
         }
 
         .security-section {
@@ -243,22 +261,23 @@
         }
 
         .security-section h2 {
-            color: #1e40af;
+            color: hsl(213, 94%, 68%);
+            text-align: center;
         }
 
         .security-highlight {
-            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+            background: linear-gradient(135deg, hsl(45, 93%, 83%) 0%, hsl(48, 96%, 89%) 100%);
             border-radius: 12px;
             padding: 40px;
             margin: 40px auto;
             max-width: 900px;
-            border-left: 6px solid #f59e0b;
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
+            border-left: 6px solid hsl(38, 92%, 50%);
+            box-shadow: 0 8px 24px hsla(38, 92%, 50%, 0.1);
             text-align: center;
         }
 
         .security-highlight h3 {
-            color: #b45309;
+            color: hsl(30, 100%, 34%);
             font-size: 1.75rem;
             display: flex;
             align-items: center;
@@ -267,12 +286,36 @@
             margin-bottom: 16px;
         }
 
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .security-card {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .security-card h4 {
+            color: hsl(213, 94%, 68%);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
         .installation-section {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            background: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(142, 69%, 58%) 100%);
         }
 
         .installation-section h2 {
-            color: #15803d;
+            color: hsl(142, 77%, 29%);
+            text-align: center;
         }
 
         .install-steps {
@@ -288,8 +331,8 @@
             padding: 32px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 6px 24px rgba(21, 128, 61, 0.1);
-            border-top: 5px solid #22c55e;
+            box-shadow: 0 6px 24px hsla(142, 77%, 29%, 0.1);
+            border-top: 5px solid hsl(142, 71%, 45%);
             transition: transform 0.3s ease;
         }
 
@@ -298,7 +341,7 @@
         }
 
         .step-number {
-            background: #22c55e;
+            background: hsl(142, 71%, 45%);
             color: white;
             width: 48px;
             height: 48px;
@@ -311,23 +354,35 @@
             margin: 0 auto 16px;
         }
 
+        .install-step h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
         .badge {
             display: inline-block;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, hsl(243, 75%, 59%) 0%, hsl(262, 83%, 58%) 100%);
             color: white;
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.95rem;
             font-weight: 500;
             margin: 6px;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 4px 12px hsla(243, 75%, 59%, 0.2);
         }
 
         .compatibility-section {
-            background: #1e293b;
+            background: hsl(222, 47%, 20%);
             color: white;
             text-align: center;
             padding: 80px 0;
+        }
+
+        .compatibility-section h2 {
+            color: white;
+            text-align: center;
         }
 
         .compatibility-grid {
@@ -340,7 +395,7 @@
 
         .compatibility-item {
             padding: 24px;
-            background: rgba(255, 255, 255, 0.08);
+            background: hsla(0, 0%, 100%, 0.08);
             border-radius: 12px;
             backdrop-filter: blur(12px);
             transition: transform 0.3s ease;
@@ -351,22 +406,30 @@
             transform: translateY(-6px);
         }
 
+        .compatibility-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
         .footer {
-            background: #0f172a;
+            background: hsl(222, 84%, 5%);
             color: white;
             text-align: center;
             padding: 48px 20px;
-            border-top: 1px solid #334155;
+            border-top: 1px solid hsl(215, 25%, 27%);
         }
 
         .footer h3 {
-            color: #4f46e5;
+            color: hsl(243, 75%, 59%);
             font-size: 1.75rem;
             margin-bottom: 16px;
+            text-align: center;
         }
 
         .metrics-section h3 {
-            color: #1e40af;
+            color: hsl(213, 94%, 68%);
             font-size: 2rem;
             margin-bottom: 32px;
             text-align: center;
@@ -382,13 +445,13 @@
         }
 
         .workflow-step {
-            background: #1e40af;
+            background: hsl(213, 94%, 68%);
             color: white;
             padding: 24px 32px;
             border-radius: 12px;
             text-align: center;
             min-width: 220px;
-            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.2);
+            box-shadow: 0 8px 24px hsla(213, 94%, 68%, 0.2);
             transition: transform 0.3s ease;
         }
 
@@ -399,7 +462,7 @@
         .performance-table {
             max-width: 1000px;
             margin: 48px auto 0;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 24px hsla(222, 47%, 11%, 0.06);
             border-radius: 12px;
             overflow: hidden;
             background: white;
@@ -417,6 +480,20 @@
             transform: scale(1.02);
         }
 
+        .perf-cell {
+            padding: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, hsl(243, 75%, 59%) 0%, hsl(262, 83%, 58%) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -428,7 +505,7 @@
             }
         }
 
-        .section, .metrics-section, .stats-grid, .security-visualization {
+        .section, .metrics-section {
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -461,6 +538,10 @@
             .performance-table {
                 max-width: 100%;
             }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -486,8 +567,8 @@
         <div class="container">
             <div class="section-block">
                 <h2>The Problem We Solve</h2>
-                <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569; text-align: center;">
-                    Organizations face <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">scattered credentials</span>, weak security practices, and compliance risks, leading to breaches and inefficiencies.
+                <p style="font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: hsl(215, 25%, 45%); text-align: center;">
+                    Organizations face <span class="gradient-text">scattered credentials</span>, weak security practices, and compliance risks, leading to breaches and inefficiencies.
                 </p>
                 <div class="problem-grid">
                     <div class="problem-card">
@@ -519,12 +600,12 @@
         <div class="container">
             <div class="section-block">
                 <h2>Our Comprehensive Solution</h2>
-                <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: #475569;">
-                    A robust credential management system for Odoo, delivering <span style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;">enterprise-grade security</span> and seamless usability.
+                <p style="text-align: center; font-size: 1.125rem; max-width: 800px; margin: 0 auto 32px; color: hsl(215, 25%, 45%);">
+                    A robust credential management system for Odoo, delivering <span class="gradient-text">enterprise-grade security</span> and seamless usability.
                 </p>
                 <div class="metrics-section">
                     <h3>Optimize Your Security Workflow</h3>
-                    <p style="text-align: center; color: #475569; margin-bottom: 32px; font-size: 1.1rem;">
+                    <p style="text-align: center; color: hsl(215, 25%, 45%); margin-bottom: 32px; font-size: 1.1rem;">
                         Tailored for teams of all sizes, our solution enhances security and access control efficiency.
                     </p>
                     <div class="workflow-chain">
@@ -532,12 +613,12 @@
                             <div style="font-weight: 600;">Credentials Managed</div>
                             <div style="font-size: 0.9rem; opacity: 0.9;">(per organization)</div>
                         </div>
-                        <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                        <div style="color: hsl(243, 75%, 59%); font-size: 1.75rem; font-weight: bold;">→</div>
                         <div class="workflow-step">
                             <div style="font-weight: 600;">Security Groups &</div>
                             <div style="font-weight: 600;">2FA Setup</div>
                         </div>
-                        <div style="color: #4f46e5; font-size: 1.75rem; font-weight: bold;">→</div>
+                        <div style="color: hsl(243, 75%, 59%); font-size: 1.75rem; font-weight: bold;">→</div>
                         <div class="workflow-step">
                             <div style="font-weight: 600;">Access Control</div>
                             <div style="font-weight: 600;">Management</div>
@@ -545,46 +626,46 @@
                     </div>
                     <div class="performance-table">
                         <div class="perf-row">
-                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(262, 90%, 95%) 0%, hsl(262, 90%, 98%) 100%); color: hsl(262, 83%, 42%);">
                                 100+ to 500+
                             </div>
-                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(262, 90%, 95%) 0%, hsl(262, 90%, 98%) 100%); color: hsl(262, 83%, 42%);">
                                 Fully Configured
                             </div>
-                            <div style="background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%); padding: 24px; text-align: center; color: #6d28d9; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(262, 90%, 95%) 0%, hsl(262, 90%, 98%) 100%); color: hsl(262, 83%, 42%);">
                                 Enterprise Ready
                             </div>
                         </div>
                         <div class="perf-row">
-                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(213, 100%, 95%) 0%, hsl(213, 100%, 98%) 100%); color: hsl(213, 94%, 35%);">
                                 50 to 100+
                             </div>
-                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(213, 100%, 95%) 0%, hsl(213, 100%, 98%) 100%); color: hsl(213, 94%, 35%);">
                                 Basic Setup
                             </div>
-                            <div style="background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); padding: 24px; text-align: center; color: #1e40af; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(213, 100%, 95%) 0%, hsl(213, 100%, 98%) 100%); color: hsl(213, 94%, 35%);">
                                 Team Collaboration
                             </div>
                         </div>
                         <div class="perf-row">
-                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(142, 76%, 90%) 0%, hsl(142, 76%, 95%) 100%); color: hsl(142, 77%, 29%);">
                                 20 to 50+
                             </div>
-                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(142, 76%, 90%) 0%, hsl(142, 76%, 95%) 100%); color: hsl(142, 77%, 29%);">
                                 Secured
                             </div>
-                            <div style="background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%); padding: 24px; text-align: center; color: #15803d; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(142, 76%, 90%) 0%, hsl(142, 76%, 95%) 100%); color: hsl(142, 77%, 29%);">
                                 Quick Deployment
                             </div>
                         </div>
                         <div class="perf-row">
-                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(25, 95%, 85%) 0%, hsl(25, 95%, 92%) 100%); color: hsl(25, 95%, 39%);">
                                 5 to 20+
                             </div>
-                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(25, 95%, 85%) 0%, hsl(25, 95%, 92%) 100%); color: hsl(25, 95%, 39%);">
                                 Initial Setup
                             </div>
-                            <div style="background: linear-gradient(135deg, #ffedd5 0%, #fff7ed 100%); padding: 24px; text-align: center; color: #c2410c; font-weight: 600;">
+                            <div class="perf-cell" style="background: linear-gradient(135deg, hsl(25, 95%, 85%) 0%, hsl(25, 95%, 92%) 100%); color: hsl(25, 95%, 39%);">
                                 Getting Started
                             </div>
                         </div>
@@ -668,13 +749,13 @@
                 <h2>Security-First Design</h2>
                 <div class="security-highlight">
                     <h3>🔒 Enterprise-Grade Protection</h3>
-                    <p style="font-size: 1.125rem; line-height: 1.8; color: #475569;">
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: hsl(215, 25%, 45%);">
                         Built with robust security measures, ensuring your credentials are safeguarded with advanced encryption and access controls.
                     </p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
-                    <div style="padding: 24px; text-align: left;">
-                        <h4 style="color: #1e40af; margin-bottom: 16px;">🛡️ What We Protect</h4>
+                <div class="security-grid">
+                    <div class="security-card">
+                        <h4>🛡️ What We Protect</h4>
                         <ul class="feature-list">
                             <li>User passwords & SSH credentials</li>
                             <li>Private keys & certificates</li>
@@ -682,8 +763,8 @@
                             <li>Server access details</li>
                         </ul>
                     </div>
-                    <div style="padding: 24px; text-align: left;">
-                        <h4 style="color: #1e40af; margin-bottom: 16px;">🔐 How We Protect</h4>
+                    <div class="security-card">
+                        <h4>🔐 How We Protect</h4>
                         <ul class="feature-list">
                             <li>Encrypted database storage</li>
                             <li>Role-based access control</li>
@@ -700,7 +781,7 @@
         <div class="container">
             <div class="section-block">
                 <h2>Quick Installation</h2>
-                <p style="text-align: center; font-size: 1.125rem; margin-bottom: 32px; color: #475569;">
+                <p style="text-align: center; font-size: 1.125rem; margin-bottom: 32px; color: hsl(215, 25%, 45%);">
                     Deploy securely in minutes with our streamlined setup process.
                 </p>
                 <div class="install-steps">
@@ -712,7 +793,7 @@
                     <div class="install-step">
                         <div class="step-number">2</div>
                         <h3>Install Dependencies</h3>
-                        <p>Run: <code>pip install pyotp</code> for 2FA support.</p>
+                        <p>Run: <code style="background: hsl(220, 13%, 95%); padding: 2px 6px; border-radius: 4px; font-size: 0.875rem;">pip install pyotp</code> for 2FA support.</p>
                     </div>
                     <div class="install-step">
                         <div class="step-number">3</div>
@@ -731,7 +812,7 @@
 
     <section class="compatibility-section section">
         <div class="container">
-            <div class="section-block">
+            <div class="section-block" style="background: hsla(0, 0%, 100%, 0.08); backdrop-filter: blur(12px);">
                 <h2>Full Compatibility</h2>
                 <div class="compatibility-grid">
                     <div class="compatibility-item">
@@ -758,11 +839,11 @@
     <div class="footer">
         <div class="container">
             <h3>Transform Credential Management</h3>
-            <p style="max-width: 600px; margin: 0 auto 24px; color: #d1d5db;">
+            <p style="max-width: 600px; margin: 0 auto 24px; color: hsl(215, 20%, 65%);">
                 Join organizations worldwide trusting our secure credential management solution.
             </p>
             <a href="#install" class="cta-button">Install Now</a>
-            <p style="margin-top: 24px; color: #d1d5db; font-size: 0.9rem;">
+            <p style="margin-top: 24px; color: hsl(215, 20%, 65%); font-size: 0.9rem;">
                 Professional credential management for Odoo 16 | Community & Enterprise
             </p>
         </div>

@@ -1,5 +1,5 @@
 {
-    'name': 'Gestor de Credenciales',
+    'name': 'Credential Manager',
     'version': '1.0',
     'category': 'Administration',
     'summary': 'Gestor de credenciales simplificado al estilo Bitwarden para Odoo 16',

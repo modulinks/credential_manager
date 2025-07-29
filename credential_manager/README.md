@@ -1,30 +1,31 @@
-# Credential Manager
+# Nombre del módulo
+Gestor de credenciales para usuarios Odoo
 
-Addon para la gestión segura y organizada de credenciales dentro del ecosistema Odoo.
+## 🧠 Descripción
+Este módulo permite almacenar, visualizar y administrar credenciales (usuario/clave/API Key) asociadas a contactos, proyectos o cualquier modelo Odoo. Ideal para equipos que necesitan trazabilidad y seguridad centralizada.
 
-## 🚀 Características principales
-- Registro estructurado de usuarios y contraseñas por cliente, proyecto o servicio
-- Cifrado de campos sensibles utilizando campos de tipo `password`
-- Clasificación de credenciales por etiquetas, categorías o entornos (prod/dev/test)
-- Control de acceso basado en grupos: solo usuarios autorizados pueden ver o modificar credenciales
-- Opcional: auditoría de cambios o historial de edición
+## 🚀 Características
+- Almacena credenciales en un modelo seguro y accesible
+- Soporte para campos tipo clave/API
+- Visibilidad restringida por grupo de usuarios
+- Compatible con Odoo 16.0 Community
 
-## 🛠 Requisitos
-- Compatible con **Odoo 16**
-- No depende de módulos externos (standalone)
+## 🛠️ Instalación
+1. Descarga el archivo ZIP desde Odoo Store o Modulink.
+2. Coloca el contenido en el directorio `addons/` de tu instancia Odoo.
+3. Reinicia el servidor y activa el módulo en `Apps`.
 
-## 🎯 Casos de uso
-- Consultores que manejan múltiples accesos por cliente o instancia
-- Equipos que comparten credenciales operativas con seguridad controlada
-- Documentación interna estructurada y centralizada de credenciales
+## 📦 Requisitos
+- Python 3.8+
+- Odoo >= 16.0 (Community)
 
-## 📦 Instalación
-Coloca el módulo en tu carpeta de addons de Odoo, actualiza la lista de apps y búscalo como "Credential Manager".
+## 🔒 Licencia y condiciones de uso
+Este módulo está protegido por derechos de autor. La compra otorga una **licencia no exclusiva, no transferible**, únicamente para uso interno del comprador.
 
-## 🧑‍💻 Créditos
-**Autor:** Modulinks  
-**Correo soporte:** innovacionmodulink@gmail.com  
+**Está prohibida la redistribución, publicación o modificación con fines comerciales sin autorización expresa.**
 
-## 📝 Licencia
-Este módulo está licenciado bajo LGPL v3.  
-Para uso comercial o personalizado, contáctanos.
+```text
+Copyright (c) Modulink
+License: Commercial / Proprietary
+Author: Modulink – Addons Odoo con trazabilidad profesional
+Website: https://modulink.dev

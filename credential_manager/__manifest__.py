@@ -2,16 +2,17 @@
     'name': 'Credential Manager',
     'version': '1.0',
     'category': 'Administration',
-    'summary': 'Gestor de credenciales simplificado al estilo Bitwarden para Odoo 16',
+    'summary': 'Simplified Bitwarden-style Credential Manager for Odoo 16',
     'description': """
-        <p>Este módulo permite a los usuarios gestionar credenciales de forma centralizada y segura.</p>
-        <p>Ideal para equipos que necesitan compartir accesos sin comprometer la seguridad.</p>
+        <p>This module allows users to manage credentials in a centralized and secure manner.</p>
+        <p>Ideal for teams needing to share access without compromising security.</p>
         <ul>
-            <li>Interfaz amigable para administrar credenciales</li>
-            <li>Control de permisos por usuario</li>
-            <li>Compatible con Odoo 16 Enterprise y Community</li>
+            <li>User-friendly interface to manage credentials</li>
+            <li>Permission control per user</li>
+            <li>Compatible with Odoo 16 Enterprise and Community</li>
         </ul>
     """,
+    'author': 'Modulink',
     'depends': ['base', 'web', 'mail'],
     'data': [
         'security/credential_manager_security.xml',
@@ -20,13 +21,10 @@
         'views/menu.xml',
     ],
     'images': [
-    'static/description/banner.png',
-    'static/description/icon.png'
+        'static/description/banner.png',
+        'static/description/icon.png'
     ],
-
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
     'installable': True,
     'application': True,
-    'price': 69.99,
-    'currency': 'USD',
 }

@@ -1,28 +1,28 @@
-# Nombre del módulo
-Gestor de credenciales para usuarios Odoo
+# Credential Manager Module
+Credential Management Solution for Odoo Users
 
-## 🧠 Descripción
-Este módulo permite almacenar, visualizar y administrar credenciales (usuario/clave/API Key) asociadas a contactos, proyectos o cualquier modelo Odoo. Ideal para equipos que necesitan trazabilidad y seguridad centralizada.
+## 📖 Overview
+This module enables secure storage, viewing, and management of credentials (username/password/API keys) linked to contacts, projects, or any Odoo model. It is designed for teams requiring centralized security and traceability.
 
-## 🚀 Características
-- Almacena credenciales en un modelo seguro y accesible
-- Soporte para campos tipo clave/API
-- Visibilidad restringida por grupo de usuarios
-- Compatible con Odoo 16.0 Community
+## 🚀 Features
+- Securely stores credentials in an accessible model
+- Supports password and API key fields
+- Restricts visibility based on user groups
+- Fully compatible with Odoo 16.0 Community and Enterprise editions
 
-## 🛠️ Instalación
-1. Descarga el archivo ZIP desde Odoo Store o Modulink.
-2. Coloca el contenido en el directorio `addons/` de tu instancia Odoo.
-3. Reinicia el servidor y activa el módulo en `Apps`.
+## 🛠️ Installation
+1. Download the ZIP file from the Odoo Store or Modulink.
+2. Extract the contents into the `addons/` directory of your Odoo instance.
+3. Restart the Odoo server and activate the module via the `Apps` menu.
 
-## 📦 Requisitos
-- Python 3.8+
-- Odoo >= 16.0 (Community)
+## 📦 Requirements
+- Python 3.8 or higher
+- Odoo 16.0 or later (Community & Enterprise)
 
-## 🔒 Licencia y condiciones de uso
-Este módulo está protegido por derechos de autor. La compra otorga una **licencia no exclusiva, no transferible**, únicamente para uso interno del comprador.
+## 🔒 License and Usage Terms
+This module is protected by copyright. The purchase grants a **non-exclusive, non-transferable license** for internal use by the buyer only.
 
-**Está prohibida la redistribución, publicación o modificación con fines comerciales sin autorización expresa.**
+**Redistribution, publication, or modification for commercial purposes without explicit authorization is prohibited.**
 
 ```text
 Copyright (c) Modulink

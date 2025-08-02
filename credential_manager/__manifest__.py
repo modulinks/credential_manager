@@ -29,6 +29,4 @@
     'application': True,
     'price': 69.99,
     'currency': 'USD',
-
-
 }

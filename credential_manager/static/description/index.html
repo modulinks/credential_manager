@@ -27,7 +27,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 20px; /* Separación mínima de 3px, ajustada para estética */
             max-width: 100%;
             margin: 0 auto;
         }
@@ -37,7 +37,7 @@
             width: 100%;
             max-width: 900px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Sombra ligera y suave */
             overflow: hidden;
             background: white;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -45,7 +45,7 @@
 
         .oe_image_item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12); /* Sombra suave en hover */
         }
 
         /* Imágenes responsivas con Bootstrap */
@@ -75,11 +75,12 @@
                 padding: 15px;
             }
             .oe_image_gallery {
-                gap: 15px;
+                gap: 15px; /* Separación mínima de 3px, ajustada */
                 max-width: 95%;
             }
             .oe_image_item {
                 max-width: 100%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             }
         }
 
@@ -89,15 +90,15 @@
                 padding: 10px;
             }
             .oe_image_gallery {
-                gap: 10px;
+                gap: 10px; /* Separación mínima de 3px, ajustada */
             }
             .oe_image_item {
                 border-radius: 6px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); /* Sombra más ligera en móviles */
             }
             .oe_image_item:hover {
                 transform: none; /* Desactiva hover en móviles */
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             }
             .oe_image_item img {
                 max-height: 250px; /* Limita altura en móviles */
@@ -106,6 +107,9 @@
 
         /* Ultra pequeñas pantallas (Bootstrap xs) */
         @media (max-width: 575px) {
+            .oe_image_gallery {
+                gap: 8px; /* Separación mínima de 3px, ajustada */
+            }
             .oe_image_item img {
                 max-height: 200px; /* Más pequeño para pantallas pequeñas */
             }

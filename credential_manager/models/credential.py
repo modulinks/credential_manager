@@ -41,21 +41,21 @@ class CredentialManager(models.Model):
 
     name = fields.Char(string='Item Name', required=True, tracking=True)
     user = fields.Char(string='User', placeholder='User', tracking=True)
-    password = fields.Char(string='Password', placeholder='Password', tracking=False)  # Visible by default
+    password = fields.Char(string='Password', placeholder='Password', tracking=False)
     url_1 = fields.Char(string='URL 1', placeholder='URL 1', tracking=True)
     url_2 = fields.Char(string='URL 2', placeholder='URL 2', tracking=True)
     url_3 = fields.Char(string='URL 3', placeholder='URL 3', tracking=True)
     url_4 = fields.Char(string='URL 4', placeholder='URL 4', tracking=True)
     ssh_user = fields.Char(string='SSH User', placeholder='SSH User', tracking=True)
-    ssh_password = fields.Char(string='SSH Password', placeholder='SSH Password', tracking=False)  # Visible by default
+    ssh_password = fields.Char(string='SSH Password', placeholder='SSH Password', tracking=False)
     ip_address = fields.Char(string='IP Address', placeholder='E.g. 192.168.1.1', tracking=True)
     dns = fields.Char(string='DNS', placeholder='E.g. dns.example.com')
     port = fields.Integer(string='Port', placeholder='E.g. 22', tracking=True)
     private_key = fields.Text(string='Private Key', placeholder='Enter the private key')
     
-    # New fields for SSH Root
+    # SSH Root fields
     ssh_root_user = fields.Char(string='SSH Root User', placeholder='SSH Root User', tracking=True)
-    ssh_root_password = fields.Char(string='SSH Root Password', placeholder='SSH Root Password', tracking=False)  # Cambio aquí: tracking=False
+    ssh_root_password = fields.Char(string='SSH Root Password', placeholder='SSH Root Password', tracking=False)
     ssh_root_ip_address = fields.Char(string='SSH Root IP Address', placeholder='E.g. 192.168.1.1', tracking=True)
     ssh_root_dns = fields.Char(string='SSH Root DNS', placeholder='E.g. root.dns.example.com', tracking=True)
     ssh_root_port = fields.Integer(string='SSH Root Port', placeholder='E.g. 22', tracking=True)
@@ -68,23 +68,25 @@ class CredentialManager(models.Model):
     current_2fa_token = fields.Char(string='Current 2FA Token', compute='_compute_current_2fa_token', store=False)
     custom_fields = fields.One2many('credential.custom.field', 'credential_id', string='Custom Fields')
 
-    @api.model
-    def create(self, vals):
-        if 'secret_2fa' in vals and vals['secret_2fa']:
-            vals['secret_2fa'] = vals['secret_2fa'].replace(' ', '')
-        return super(CredentialManager, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if 'secret_2fa' in vals and vals['secret_2fa']:
+                vals['secret_2fa'] = vals['secret_2fa'].replace(' ', '')
+        return super(CredentialManager, self).create(vals_list)
 
     def write(self, vals):
-        # Rastrear cambios de contraseñas antes de escribir
+        # Track password changes before writing
         for record in self:
             record._track_password_changes(vals)
         
-        # Código existente para 2FA
+        # Existing 2FA code
         if 'secret_2fa' in vals and vals['secret_2fa']:
             vals['secret_2fa'] = vals['secret_2fa'].replace(' ', '')
         
         return super(CredentialManager, self).write(vals)
 
+    @api.depends('use_2fa', 'secret_2fa')
     def _compute_current_2fa_token(self):
         for record in self:
             if record.use_2fa and record.secret_2fa:
@@ -106,15 +108,15 @@ class CredentialManager(models.Model):
         return False
 
     def _track_password_changes(self, vals):
-        """Rastrea los cambios de contraseñas y los guarda en el historial"""
-        if not self.id:  # Solo para registros existentes
+        """Track password changes and save them to history"""
+        if not self.id:  # Only for existing records
             return
         
-        # Obtener valores anteriores
+        # Get previous values
         old_record = self.browse(self.id)
         changes = {}
         
-        # Verificar cambios en cada tipo de contraseña
+        # Check for changes in each password type
         if 'password' in vals and vals['password'] != old_record.password and old_record.password:
             changes['password'] = old_record.password
         
@@ -124,7 +126,7 @@ class CredentialManager(models.Model):
         if 'ssh_root_password' in vals and vals['ssh_root_password'] != old_record.ssh_root_password and old_record.ssh_root_password:
             changes['ssh_root_password'] = old_record.ssh_root_password
         
-        # Si hay cambios, crear registro en el historial
+        # If there are changes, create history record
         if changes:
             change_type = 'multiple' if len(changes) > 1 else list(changes.keys())[0]
             
@@ -139,7 +141,7 @@ class CredentialManager(models.Model):
             self.env['credential.password.history'].create(history_vals)
 
     def action_view_password_history(self):
-        """Abrir wizard para ver el historial de contraseñas"""
+        """Open wizard to view password history"""
         return {
             'type': 'ir.actions.act_window',
             'name': 'Password History',
@@ -162,19 +164,15 @@ class CredentialManager(models.Model):
         }
 
     def action_view_credential(self):
-        """Método para permitir ver credenciales sin permisos de escritura"""
+        """Method to allow viewing credentials without write permissions"""
         self.ensure_one()
-        # Este método solo retorna la información sin modificar nada
-        # Se puede usar desde botones en la vista
         return {
             'type': 'ir.actions.do_nothing',
         }
     
     def action_copy_credential(self, field_name):
-        """Método para permitir copiar credenciales sin permisos de escritura"""
+        """Method to allow copying credentials without write permissions"""
         self.ensure_one()
-        # Este método solo retorna el valor del campo para copiado
-        # Se puede usar desde botones en la vista
         field_value = getattr(self, field_name, '')
         return {
             'type': 'ir.actions.client',
@@ -188,13 +186,14 @@ class CredentialManager(models.Model):
         }
     
     def get_credential_value(self, field_name):
-        """Método para obtener valores de credenciales sin permisos de escritura"""
+        """Method to get credential values without write permissions"""
         self.ensure_one()
         return getattr(self, field_name, '')
 
     @api.model
-    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        result = super(CredentialManager, self).fields_view_get(view_id, view_type, toolbar=toolbar, submenu=submenu)
+    def get_view(self, view_id=None, view_type='form', **options):
+        # Updated method name for Odoo 17
+        result = super(CredentialManager, self).get_view(view_id=view_id, view_type=view_type, **options)
         if view_type == 'form':
             doc = etree.XML(result['arch'])
             for node in doc.xpath("//group[@name='custom_fields_group']"):

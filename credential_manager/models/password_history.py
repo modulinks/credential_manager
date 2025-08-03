@@ -32,7 +32,7 @@ class PasswordHistoryWizard(models.TransientModel):
         credential_id = self._context.get('active_id')
         if credential_id:
             res['credential_id'] = credential_id
-            # Cargar el historial
+            # Load history
             history_records = self.env['credential.password.history'].search([
                 ('credential_id', '=', credential_id)
             ], order='change_date desc')
@@ -45,7 +45,7 @@ class PasswordHistoryWizard(models.TransientModel):
                     'change_type': record.change_type,
                 }
                 
-                # Solo mostrar las contraseñas que cambiaron
+                # Only show passwords that changed
                 passwords_shown = []
                 if record.change_type == 'password' and record.old_password:
                     passwords_shown.append(f"Login: {record.old_password}")

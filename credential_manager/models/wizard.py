@@ -27,7 +27,7 @@ class CredentialCustomFieldWizard(models.TransientModel):
             'field_type': self.field_type,
             'linked_field': self.linked_field if self.field_type == 'linked' else False,
         })
-        # Recargar la vista del formulario de credential.manager
+        # Reload credential.manager form view
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'credential.manager',

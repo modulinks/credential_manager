@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from lxml import etree
 import pyotp
 from odoo.exceptions import UserError
 
@@ -159,6 +160,37 @@ class CredentialManager(models.Model):
             'target': 'new',
             'context': {'default_credential_id': self.id},
         }
+
+    def action_view_credential(self):
+        """Método para permitir ver credenciales sin permisos de escritura"""
+        self.ensure_one()
+        # Este método solo retorna la información sin modificar nada
+        # Se puede usar desde botones en la vista
+        return {
+            'type': 'ir.actions.do_nothing',
+        }
+    
+    def action_copy_credential(self, field_name):
+        """Método para permitir copiar credenciales sin permisos de escritura"""
+        self.ensure_one()
+        # Este método solo retorna el valor del campo para copiado
+        # Se puede usar desde botones en la vista
+        field_value = getattr(self, field_name, '')
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Copied!',
+                'message': f'{field_name.title()} copied to clipboard',
+                'type': 'success',
+                'sticky': False,
+            }
+        }
+    
+    def get_credential_value(self, field_name):
+        """Método para obtener valores de credenciales sin permisos de escritura"""
+        self.ensure_one()
+        return getattr(self, field_name, '')
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):

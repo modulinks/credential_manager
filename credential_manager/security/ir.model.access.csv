@@ -17,3 +17,5 @@ access_password_history_wizard_admin,Acceso Wizard Historial Admin,model_passwor
 access_password_history_wizard_system,Acceso Wizard Historial System,model_password_history_wizard,base.group_system,1,1,1,1
 access_password_history_wizard_line_admin,Acceso Wizard Line Historial Admin,model_password_history_wizard_line,group_credential_manager,1,1,1,1
 access_password_history_wizard_line_system,Acceso Wizard Line Historial System,model_password_history_wizard_line,base.group_system,1,1,1,1
+access_credential_view_all,Ver Credenciales Todos,model_credential_manager,base.group_user,1,0,0,0
+access_credential_copy_all,Copiar Credenciales Todos,model_credential_manager,base.group_user,1,0,0,0

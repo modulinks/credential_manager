@@ -18,6 +18,7 @@
         'security/credential_manager_security.xml',
         'security/ir.model.access.csv',
         'views/credential_views.xml',
+        'views/password_history_views.xml',
         'views/menu.xml',
     ],
     'images': [

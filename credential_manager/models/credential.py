@@ -42,11 +42,11 @@ class CredentialManager(models.Model):
     user = fields.Char(string='User', placeholder='User', tracking=True)
     password = fields.Char(string='Password', placeholder='Password', tracking=False)  # Visible by default
     url_1 = fields.Char(string='URL 1', placeholder='URL 1', tracking=True)
-    url_2 = fields.Char(string='URL 2', placeholder='URL 2')
-    url_3 = fields.Char(string='URL 3', placeholder='URL 3')
-    url_4 = fields.Char(string='URL 4', placeholder='URL 4')
+    url_2 = fields.Char(string='URL 2', placeholder='URL 2', tracking=True)
+    url_3 = fields.Char(string='URL 3', placeholder='URL 3', tracking=True)
+    url_4 = fields.Char(string='URL 4', placeholder='URL 4', tracking=True)
     ssh_user = fields.Char(string='SSH User', placeholder='SSH User', tracking=True)
-    ssh_password = fields.Char(string='SSH Password', placeholder='SSH Password', tracking=True)  # Visible by default
+    ssh_password = fields.Char(string='SSH Password', placeholder='SSH Password', tracking=False)  # Visible by default
     ip_address = fields.Char(string='IP Address', placeholder='E.g. 192.168.1.1', tracking=True)
     dns = fields.Char(string='DNS', placeholder='E.g. dns.example.com')
     port = fields.Integer(string='Port', placeholder='E.g. 22', tracking=True)
@@ -54,11 +54,11 @@ class CredentialManager(models.Model):
     
     # New fields for SSH Root
     ssh_root_user = fields.Char(string='SSH Root User', placeholder='SSH Root User', tracking=True)
-    ssh_root_password = fields.Char(string='SSH Root Password', placeholder='SSH Root Password', tracking=True)
+    ssh_root_password = fields.Char(string='SSH Root Password', placeholder='SSH Root Password', tracking=False)  # Cambio aquí: tracking=False
     ssh_root_ip_address = fields.Char(string='SSH Root IP Address', placeholder='E.g. 192.168.1.1', tracking=True)
-    ssh_root_dns = fields.Char(string='SSH Root DNS', placeholder='E.g. root.dns.example.com')
+    ssh_root_dns = fields.Char(string='SSH Root DNS', placeholder='E.g. root.dns.example.com', tracking=True)
     ssh_root_port = fields.Integer(string='SSH Root Port', placeholder='E.g. 22', tracking=True)
-    ssh_root_private_key = fields.Text(string='SSH Root Private Key', placeholder='Enter the SSH root private key')
+    ssh_root_private_key = fields.Text(string='SSH Root Private Key', placeholder='Enter the SSH root private key', tracking=True)
     
     notes = fields.Text(string='Notes', placeholder='Notes', tracking=True)
     collection_id = fields.Many2one('credential.collection', string='Folder', tracking=True)
@@ -74,8 +74,14 @@ class CredentialManager(models.Model):
         return super(CredentialManager, self).create(vals)
 
     def write(self, vals):
+        # Rastrear cambios de contraseñas antes de escribir
+        for record in self:
+            record._track_password_changes(vals)
+        
+        # Código existente para 2FA
         if 'secret_2fa' in vals and vals['secret_2fa']:
             vals['secret_2fa'] = vals['secret_2fa'].replace(' ', '')
+        
         return super(CredentialManager, self).write(vals)
 
     def _compute_current_2fa_token(self):
@@ -97,6 +103,50 @@ class CredentialManager(models.Model):
             except Exception:
                 return False
         return False
+
+    def _track_password_changes(self, vals):
+        """Rastrea los cambios de contraseñas y los guarda en el historial"""
+        if not self.id:  # Solo para registros existentes
+            return
+        
+        # Obtener valores anteriores
+        old_record = self.browse(self.id)
+        changes = {}
+        
+        # Verificar cambios en cada tipo de contraseña
+        if 'password' in vals and vals['password'] != old_record.password and old_record.password:
+            changes['password'] = old_record.password
+        
+        if 'ssh_password' in vals and vals['ssh_password'] != old_record.ssh_password and old_record.ssh_password:
+            changes['ssh_password'] = old_record.ssh_password
+        
+        if 'ssh_root_password' in vals and vals['ssh_root_password'] != old_record.ssh_root_password and old_record.ssh_root_password:
+            changes['ssh_root_password'] = old_record.ssh_root_password
+        
+        # Si hay cambios, crear registro en el historial
+        if changes:
+            change_type = 'multiple' if len(changes) > 1 else list(changes.keys())[0]
+            
+            history_vals = {
+                'credential_id': self.id,
+                'change_type': change_type,
+                'old_password': changes.get('password', False),
+                'old_ssh_password': changes.get('ssh_password', False),
+                'old_ssh_root_password': changes.get('ssh_root_password', False),
+            }
+            
+            self.env['credential.password.history'].create(history_vals)
+
+    def action_view_password_history(self):
+        """Abrir wizard para ver el historial de contraseñas"""
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Password History',
+            'res_model': 'password.history.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'active_id': self.id},
+        }
 
     def add_webpage(self):
         raise UserError("Add webpage function not yet implemented")
